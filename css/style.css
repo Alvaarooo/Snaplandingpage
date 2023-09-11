@@ -18,15 +18,26 @@ header{
 }
 nav{
     display: flex;
+    margin: auto 0;
 }
 ul{
     display: flex;
     padding: 0 2em;
     list-style: none;
 }
+li{
+    margin: auto;
+    padding: 0 1em;
+}
+.activador{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 a{
     text-decoration: none;
-    padding: 0 .5em 0 2em;
+    padding-right: .5em;
     color: hsl(0, 0%, 41%);
 }
 .btn{
@@ -40,11 +51,16 @@ a{
     height: 40px;
     border-radius: 15px;
 }
-.arrow-down{
+.arrow-down, .arrow-up{
     background-color: transparent;
     border: none;
 }
-
+.arrow-up{
+    display: none;
+}
+.activador:hover{
+    cursor: pointer;
+}
 /*FIN HEADER*/
 
 .hero{
@@ -55,12 +71,14 @@ a{
     display: flex;
     flex-direction: column;
     padding: 5em;
-    margin-top: 100px;
+    margin-top: 5em;
+    width: 100%;
 }
 .hero__img img{
     width: 100%;
     height: 100%;
     padding: 5em;
+    object-fit: contain;
 }
 .hero__text h1{
     font-size: 5em;
@@ -86,6 +104,9 @@ a{
 .hero__text-svg svg{
     margin: 0 1em;
 }
+ul{
+    position: relative;
+}
 /*FIN MAIN*/
 
 .header__btn-login:hover{
@@ -102,10 +123,13 @@ a{
     color: hsl(0, 0%, 8%);
     background-color: hsl(0, 0%, 98%);
 }
+.ul-contenedor{
+    display: none;
+    position: absolute;
+}
 .ul-inside{
-    position: relative;
+    position: absolute;
     border-radius: 10px;
-    right: 40px;
     flex-direction: column;
     background-color: white;
     padding: 0;
@@ -115,7 +139,9 @@ a{
     -moz-box-shadow: -1px 0px 8px 1px rgba(201,177,177,0.75);
 }
 .ul-inside li{
-    padding: .7em .8em;
+    width: max-content;
+    margin: auto 0;
+    padding: .5em .6em;
 }
 .ul-inside li a{
     font-size: .8;
@@ -127,10 +153,93 @@ a{
 .ul-inside-two li a {
     padding: 0 .4em;
 }
-.disabled{
+.activador:hover .activador-a {
+    color: hsl(0, 0%, 8%);
+}
+.activador:hover .ul-contenedor{
+    display: flex;
+}
+.activador:hover .arrow-down{
     display: none;
 }
-.active{
+.activador:hover .arrow-up{
     display: flex;
 }
 /*FIN ACTIVE STATES*/
+
+@media (max-width: 1100px) {
+    .hero__img img, .hero__text{
+        padding: 2em;
+        margin-top: 0;
+    }
+}
+@media (max-width: 1450px){
+    .hero__text-svg{
+        margin-top: 30px;
+    }
+}
+@media (max-width: 920px) {
+    ul, .header__btn{
+        display: none;
+    }
+    .hero__text h1{
+        font-size: 3em;
+        text-align: center;
+    }
+    .hero__text p{
+        font-size: 1em;
+        text-align: center;
+        margin: 30px 30px;
+    }
+    .hero__text-svg{
+        display: flex;
+
+        margin-top: 40px;
+    }
+    .hero__text button{
+        margin-top: 0;
+    }
+    .hero__text, .hero__img{
+        justify-content: center;
+        align-items: center;
+    }
+    .hero__text{
+        width: min-content;
+    }
+}
+@media (max-width: 850px) {
+    .hero{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+    }
+    .hero__img{
+        display: flex;
+        width: 100%;
+        margin: auto;
+    }
+    .hero__img img{
+        width: 60%;
+    }
+}
+@media (max-width: 500px){
+    .hero__img img{
+        width: 90%;
+        padding: 0;
+        height: 50vh;
+    }
+    .hero__text{
+        width: 100%;
+        padding: 2em .3em;
+    }
+    .hero__text-svg{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        width: 100%;
+        
+    }
+}
