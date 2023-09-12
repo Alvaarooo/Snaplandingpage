@@ -206,8 +206,10 @@ ul{
     .hero__text{
         width: min-content;
     }
-}
-@media (max-width: 850px) {
+    .hero__text-btn:active{
+        color: hsl(0, 0%, 8%);
+        background-color: hsl(0, 0%, 98%);
+    }
     .hero{
         display: flex;
         align-items: center;
